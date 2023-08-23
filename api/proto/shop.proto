@@ -2,11 +2,12 @@ syntax = "proto3";
 
 package shop;
 
-option go_package = "./shop";
-
 import "google/api/annotations.proto";
 
-service Schop{
+option go_package = "./shop";
+
+
+service Shop{
     rpc Hello(HelloResponce) returns(HelloRequest){
         option (google.api.http) ={
             post: "/api/hello"
