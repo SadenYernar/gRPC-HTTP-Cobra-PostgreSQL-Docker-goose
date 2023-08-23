@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package shop;
+
+option go_package = "./shop";
+
+import "google/api/annotations.proto";
+
+service Schop{
+    rpc Hello(HelloResponce) returns(HelloRequest){
+        option (google.api.http) ={
+            post: "/api/hello"
+            body: "*"
+        };
+    }
+}
+
+message HelloResponce{
+    string message = 1 ;
+}
+
+message HelloRequest{
+    string message = 1; 
+}
