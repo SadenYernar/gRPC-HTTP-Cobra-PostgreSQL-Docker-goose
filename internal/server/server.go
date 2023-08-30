@@ -4,9 +4,9 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	pb "gRPC-HTTP-Cobra-PostgreSQL-Docker-goose/api/proto/shop"
 	"time"
 
+	pb "github.com/SadenYernar/gRPC-HTTP-Cobra-PostgreSQL-Docker-goose.git/api/proto/shop"
 	"github.com/SadenYernar/gRPC-HTTP-Cobra-PostgreSQL-Docker-goose.git/internal/entity"
 	"github.com/SadenYernar/gRPC-HTTP-Cobra-PostgreSQL-Docker-goose.git/internal/logger"
 	"github.com/SadenYernar/gRPC-HTTP-Cobra-PostgreSQL-Docker-goose.git/internal/service"
@@ -22,15 +22,15 @@ func (s *Server) UserRegisterServer(ctx context.Context, in *pb.UserRegisterRequ
 	logger.Info("Start working Register")
 
 	UserInfo := &entity.User{
-		Id:          in.GetId,
-		FirstName:   in.GetFirstName,
-		LastName:    in.GetLastName,
-		Username:    in.GetUsername,
-		Email:       in.GetEmail,
-		Password:    in.GetPassword,
-		Sex:         in.GetSex,
-		City:        in.GetCity,
-		DateBirth:   in.GetDateBirth,
+		Id:          in.GetId(),
+		FirstName:   in.GetFirstName(),
+		LastName:    in.GetLastName(),
+		Username:    in.GetUsername(),
+		Email:       in.GetEmail(),
+		Password:    in.GetPassword(),
+		Sex:         in.GetSex(),
+		City:        in.GetCity(),
+		DateBirth:   in.GetDateBirth(),
 		DateCreated: time.Now(),
 	}
 
